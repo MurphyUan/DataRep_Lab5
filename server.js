@@ -10,14 +10,17 @@ app.use(bodyParser.urlencoded({extended:false}))
 // Parse applcation/json
 app.use(bodyParser.json())
 
+//Exercise 3: Return Message "Welcome to Data Representation & Querying"
 app.get('/',(req, res) => {
     res.send('Welcome to Data Representation & Querying!')
 })
 
+//Exercise 4: Uses URL to pass arguments to screen
 app.get(`/hello/:name`, (req, res)=>{
     res.send(`Hello ${req.params.name}`)
 })
 
+//Exercise 5: Returns JSON data
 app.get(`/api/movies`, (req, res)=>{
     const mymovies = [
         {
@@ -39,18 +42,22 @@ app.get(`/api/movies`, (req, res)=>{
     res.json({movies: mymovies})
 })
 
+//Exercise 6: Returns Index.html to the screen
 app.get(`/test`, (req,res)=>{
     res.sendFile(__dirname + '/index.html')
 })
 
+//Exercise 7: Using Exercise 6 open a form and write to the URL of the request and then return values to user
 app.get(`/name`, (req, res)=>{
     res.send(`Hello ${req.query.fname} ${req.query.lname}`)
 })
 
+//Exercise 8: Using Exercise 6 open a form and write to the body of the request and then return values to the user
 app.post('/name', (req, res)=>{
     res.send(`Hello ${req.body.fname} ${req.body.lname}`)
 })
 
+//Exercise 3: Listens to localhost:3000 aka writes to and from
 app.listen(port, ()=>{
     console.log(`Server App listening at http://localhost:${port}`)
 })
